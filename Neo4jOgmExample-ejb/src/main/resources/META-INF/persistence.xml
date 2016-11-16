@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    
+<persistence-unit name="neo4j-ogm" transaction-type="JTA">
+      <provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
+      <properties>
+        <property name="hibernate.ogm.datastore.provider" value="neo4j_bolt"/>
+        <property name="hibernate.ogm.datastore.host" value="localhost:7687" />
+        <property name="hibernate.ogm.datastore.username" value="neo4j" />
+        <property name="hibernate.ogm.datastore.password" value="password" />
+        <property name="hibernate.ogm.datastore.database" value="graph.db"/>
+        <!-- http://docs.jboss.org/hibernate/core/4.0/javadocs/org/hibernate/service/jta/platform/internal/package-summary.html -->
+        <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.SunOneJtaPlatform"/>
+      </properties>
+  </persistence-unit>
+</persistence>
